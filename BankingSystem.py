@@ -34,7 +34,7 @@ class Bank:
 
         #search for a transaction
     def search_wallet(self, query):
-            found = [trans for trans in self.wallet if query.lower() in trans.title.lower() or query.lower in
+            found = [trans for trans in self.wallet if query.lower() in trans.title.lower() or query.lower() in
             trans.type.lower()]
             if not found:
                 return f"no transactions"
