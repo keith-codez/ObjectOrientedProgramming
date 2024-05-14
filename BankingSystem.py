@@ -87,7 +87,7 @@ def main():
                     print(wallet.display())
                 
                 elif choice == "4":
-                    query = input("Enter title or type")
+                    query = input("Enter title or type: ")
                     print(wallet.search_wallet(query))
 
                 elif choice =="5":
