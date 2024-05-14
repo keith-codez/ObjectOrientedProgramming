@@ -1,3 +1,4 @@
+import json
 class Transaction:
     def __init__(self, title, amount, type, note=""):
         self.title = title
@@ -13,11 +14,11 @@ class Bank:
         self.wallet = []
 
         #add a transaction
-        def add_transaction(self, transaction):
+    def add_transaction(self, transaction):
             self.wallet.append(transaction)
 
         #remove a transaction 
-        def del_transaction(self, title):
+    def del_transaction(self, title):
             for trans in self.wallet:
                 if trans.title == title:
                     self.wallet.remove(trans)
@@ -26,13 +27,13 @@ class Bank:
 
 
         #display all transactions
-        def display(self):
+    def display(self):
             if not self.wallet:
                 return f"no transactions in your wallet"
             return f"\n".join([transaction.display_info() for transaction in self.wallet])
 
         #search for a transaction
-        def search_wallet(self, query):
+    def search_wallet(self, query):
             found = [trans for trans in self.wallet if query.lower() in trans.title.lower() or query.lower in
             trans.type.lower()]
             if not found:
@@ -40,14 +41,14 @@ class Bank:
             return f"\n".join([transaction.display_info() for transaction in found])
 
         #save a transaction
-        def save_file(self, filename="wallet.json"):
+    def save_file(self, filename="wallet.json"):
             data = [{'Expense': transaction.title, 'Amount':transaction.amount, 'Type': transaction.type, 'Note': transaction.note} for transaction in self.wallet]
             with open(filename, "w") as file:
                 json.dump(data, file)
 
         
         #loading 
-        def load_file(self, filename="wallet.json"):
+    def load_file(self, filename="wallet.json"):
             try:
                 with open(filename, "r") as file:
                     data = json.load(file)
