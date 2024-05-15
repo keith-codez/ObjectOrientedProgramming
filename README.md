@@ -1,1 +1,1 @@
-This Repository contains projects that i have worked on while learning about object oriented programming
+This Repository contains a banking system project that i have been working on while learning about object oriented programming.
